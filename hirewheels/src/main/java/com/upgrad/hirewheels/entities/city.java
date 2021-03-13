@@ -38,4 +38,5 @@ public class city {
                 ", city_name='" + city_name + '\'' +
                 '}';
     }
+
 }

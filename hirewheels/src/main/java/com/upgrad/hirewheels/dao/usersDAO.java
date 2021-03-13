@@ -13,4 +13,6 @@ public interface usersDAO  {
     public  users save(users usersList);
     public users findById(int id);
 
+    public void delete(users usersList);
+
 }

@@ -103,5 +103,16 @@ public class usersDAOImpl implements usersDAO{
 
         return usersList;
     }
+    @Override
+    public void delete(users usersList) {
+        Session session = this.sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        users mergedCustomer = (users)session.merge(usersList);
+        session.delete(mergedCustomer);
+
+        transaction.commit();
+        session.close();
+    }
 
 }
