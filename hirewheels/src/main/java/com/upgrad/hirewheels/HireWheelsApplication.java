@@ -17,9 +17,9 @@ public class HireWheelsApplication {
 //		SpringApplication.run(HireWheelsApplication.class, args);
 
 		ApplicationContext context = SpringApplication.run(HireWheelsApplication.class, args);
-		initService service = context.getBean(initService.class);
-		
-//		usersDAO users_Dao = context.getBean(usersDAO.class);
+//		initService service = context.getBean(initService.class);
+
+		usersDAO users_Dao = context.getBean(usersDAO.class);
 //		userTypeDAO user_type_dao = context.getBean(userTypeDAO.class);
 //
 //
@@ -43,7 +43,7 @@ public class HireWheelsApplication {
 //		users_list.setWallet_money(10000);
 //
 //
-//		users_list.setUser_type_id(users_list.getUser_type_id());
+//		users_list.setUser_type_id(1);
 //		System.out.println("Before Saving: " + users_list);
 //
 //		users saveduser = users_Dao.save(users_list);
