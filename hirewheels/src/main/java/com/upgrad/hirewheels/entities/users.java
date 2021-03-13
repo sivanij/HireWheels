@@ -3,6 +3,7 @@ package com.upgrad.hirewheels.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class users {
@@ -26,6 +27,12 @@ public class users {
     @Column(nullable = false)
     private int mobile_number;
     private int wallet_money;
+    @OneToMany(mappedBy = "users_id")
+    private Set<booking> bookings;
+
+    @ManyToOne
+    @JoinColumn(name = "user_type_id", nullable = false)
+    private user_type  user_type_id;
 
     public int getUser_id() {
         return user_id;
@@ -83,6 +90,13 @@ public class users {
         this.wallet_money = wallet_money;
     }
 
+    public user_type getUser_type_id() {
+        return user_type_id;
+    }
+
+    public void setUser_type_id(user_type user_type_id) {
+        this.user_type_id = user_type_id;
+    }
 
     @Override
     public String toString() {
@@ -94,6 +108,7 @@ public class users {
                 ", password='" + password + '\'' +
                 ", mobile_number=" + mobile_number +
                 ", wallet_money=" + wallet_money +
+                ", user_type_id= " + user_type_id +
                 '}';
     }
 }

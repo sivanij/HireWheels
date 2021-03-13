@@ -1,8 +1,6 @@
 package com.upgrad.hirewheels.entities;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class user_type {
@@ -10,7 +8,8 @@ public class user_type {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int user_type_id;
     private String user_type_name;
-
+    @OneToMany(mappedBy = "user_type_id")
+    private Set<user_type> user_types;
     public int getUser_type_id() {
         return user_type_id;
     }

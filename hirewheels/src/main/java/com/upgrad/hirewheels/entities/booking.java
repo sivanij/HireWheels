@@ -18,12 +18,49 @@ public class booking {
     private int booking_amount;
     private String actual_drop_off_date;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id" , nullable = false)
+    private city city_id;
+
+
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id", nullable = false)
+    private vehicle vehicle_id;
+
+    @ManyToOne
+    @JoinColumn(name = "users_id", nullable = false)
+    private users users_id;
+
     public int getBooking_id() {
         return booking_id;
     }
 
     public void setBooking_id(int booking_id) {
         this.booking_id = booking_id;
+    }
+
+    public city getCity_id() {
+        return city_id;
+    }
+
+    public void setCity_id(city city_id) {
+        this.city_id = city_id;
+    }
+
+    public vehicle getVehicle_id() {
+        return vehicle_id;
+    }
+
+    public void setVehicle_id(vehicle vehicle_id) {
+        this.vehicle_id = vehicle_id;
+    }
+
+    public users getUsers_id() {
+        return users_id;
+    }
+
+    public void setUsers_id(users users_id) {
+        this.users_id = users_id;
     }
 
     public LocalDateTime getPickup_date() {
@@ -74,7 +111,12 @@ public class booking {
                 ", drop_off_date=" + drop_off_date +
                 ", booking_date=" + booking_date +
                 ", booking_amount=" + booking_amount +
-                ", actual_drop_off_date='" + actual_drop_off_date + '\'' +
+                ", actual_drop_off_date='" + actual_drop_off_date +
+                ", city_id= " + city_id +
+                ", vehicle_id= " + vehicle_id    +
+                ", users_id= " + users_id+
+
+                '\'' +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.upgrad.hirewheels.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class fuel_type {
@@ -9,6 +10,8 @@ public class fuel_type {
     private int fuel_type_id;
     @Column(nullable = false)
     private String fuel_type;
+    @OneToMany(mappedBy = "fuel_type_id")
+    private Set<vehicle> vehicles;
 
     public int getFuel_type_id() {
         return fuel_type_id;
